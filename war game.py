@@ -1,7 +1,9 @@
-
+import random
+suits = {'Hearts', 'Diamonds', 'Spades', 'clubs'}
+ranks = {'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten','Jack', 'Queen', 'Kind', 'Ace'}
 values = {
-    'Two': 2, 'Three': 3, 'Four': 3, 'Five': 3, 'Six': 3, 'Seven': 3, 'Eight': 3, 'Nine': 3, 'Ten': 3,
-    'Jack': 3, 'Queen': 3, 'Kind': 3, 'Ace': 3
+    'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eight': 8, 'Nine': 9, 'Ten': 10,
+    'Jack': 11, 'Queen': 12, 'King': 13, 'Ace': 14
 }
 
 class Card():
