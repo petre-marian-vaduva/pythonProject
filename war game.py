@@ -24,4 +24,8 @@ class Deck:
                 created_card = Card(suit, rank)
                 self.all_cards.append(created_card)
 
+    def shuffle(self):
+        random.shuffle(self.all_cards)
+
+
 
