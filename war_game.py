@@ -64,3 +64,16 @@ new_deck.shuffle()
 for i in range(26):
     player_one.add_cars(new_deck.deal_one())
     player_two.add_cars(new_deck.deal_one())
+
+game_on = True
+round_num = 0
+
+while game_on:
+    round_num += 1
+    if len(player_one.all_cards) == 0:
+        print('Player One, out of cards! Player Two wins !')
+
+    if len(player_one.all_cards) == 0:
+        print('Player Two, out of cards! Player One wins !')
+        game_on = False
+        break
