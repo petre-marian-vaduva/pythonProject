@@ -77,3 +77,9 @@ while game_on:
         print('Player Two, out of cards! Player One wins !')
         game_on = False
         break
+
+# Start a new round
+
+player_one_cards = [player_one.remove_one()]
+
+player_two_cards = [player_two.remove_one()]
