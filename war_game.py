@@ -30,3 +30,28 @@ class Deck:
     def deal_one(self):
         return self.all_cards.pop()
 
+
+class Player:
+    pass
+
+
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.all_cards = []
+
+    def remove_one(self):
+        return self.all_cards.pop(0)
+
+    def add_cars(self, new_cards):
+        if isinstance(new_cards, list):
+            # List of multiple Card objects
+            self.all_cards.extend(new_cards)
+        else:
+            self.all_cards.append(new_cards)
+            # For a single card object
+
+    def __str__(self):
+        return f'Player {self.name} has {len(self.all_cards)} cards.'
+
+
