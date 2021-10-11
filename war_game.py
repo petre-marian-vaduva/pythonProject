@@ -1,6 +1,7 @@
+
 import random
 suits = {'Hearts', 'Diamonds', 'Spades', 'Clubs'}
-ranks = {'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'Kind', 'Ace'}
+ranks = {'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace'}
 values = {
     'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eight': 8, 'Nine': 9, 'Ten': 10,
     'Jack': 11, 'Queen': 12, 'King': 13, 'Ace': 14
@@ -55,3 +56,11 @@ class Player:
         return f'Player {self.name} has {len(self.all_cards)} cards.'
 
 
+player_one = Player('One')
+player_two = Player('Two')
+new_deck = Deck()
+new_deck.shuffle()
+
+for i in range(26):
+    player_one.add_cars(new_deck.deal_one())
+    player_two.add_cars(new_deck.deal_one())
