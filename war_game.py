@@ -90,14 +90,11 @@ while at_war:
     if player_one_cards[-1].value > player_two_cards[-1].value:
         player_one.add_cars(player_one_cards)
         player_two.add_cars(player_two_cards)
-
-    at_war = False
+        at_war = False
 
     elif player_one_cards[-1].value < player_two_cards[-1].value:
         player_two.add_cars(player_two_cards)
         player_one.add_cars(player_one_cards)
-
-        at_war = False
 
     else:
         print('WAR!')
@@ -115,3 +112,4 @@ while at_war:
             for num in range(3):
                 player_one_cards.append(player_one.remove_one())
                 player_one_cards.append(player_one.remove_one())
+
