@@ -77,10 +77,140 @@
 # Example Output 2
 # 112
 
-def word_count(s):
-    r = s.lower()
-    for c in r:
-        if c not in 'abcdefghijklmnopqrstuvwxyz': r=r.replace(c, ' ')
-    r = sum(bool(w) for w in r.split() if w not in  ["a", "the", "on", "at", "of", "upon", "in", "as"])
-    return r
+# def word_count(s):
+#     r = s.lower()
+#     for c in r:
+#         if c not in 'abcdefghijklmnopqrstuvwxyz': r=r.replace(c, ' ')
+#     r = sum(bool(w) for w in r.split() if w not in  ["a", "the", "on", "at", "of", "upon", "in", "as"])
+#     return r
 
+
+# You are doing an excercise for chess class.
+#
+# Your job given a bishop's start position (pos1 / startPos) find if the end position (pos2 / endPos) given is possible within n moves.
+#
+# INPUT :
+# startPos (1st param) ==> The position at which bishop is at
+# endPos   (2nd param) ==> The position at which he is supposed to end at
+# number   (3rd param) ==> The number of moves allowed to bishop to move to said position
+# BOARD :
+# 8 |_|#|_|#|_|#|_|#|
+# 7 |#|_|#|_|#|_|#|_|
+# 6 |_|#|_|#|_|#|_|#|
+# 5 |#|_|#|_|#|_|#|_|
+# 4 |_|#|_|#|_|#|_|#|
+# 3 |#|_|#|_|#|_|#|_|
+# 2 |_|#|_|#|_|#|_|#|
+# 1 |#|_|#|_|#|_|#|_|
+#    a b c d e f g h
+# The board is a 8 x 8 board goes from a1 to h8
+#
+# BISHOP MOVEMENT :
+# The bishop chess piece moves in any direction diagonally. Chess rules state that there is no limit to the number of squares a bishop can travel on the chessboard, as long as there is not another piece obstructing its path. Bishops capture opposing pieces by landing on the square occupied by an enemy piece.
+#
+# OUTPUT :
+# Find out whether within n moves he can move from start pos to end pos. If he can return true, if not return false
+#
+# NOTES :
+# Return true if start and end position are same; even if number of moves is 0
+# Both start and end positions will always be valid (so within a1 ---> h8)
+# Input positions will always follow this pattern : f1 (i.e : Char(representing one of a-h)Number(represnting one of 1-8) on chess board)
+# The alphabet will always be lowercase followed immediately by number no space.
+# For our purpose, chess board is always empty, i.e: the bishop is the only one that can be played.
+# The number of moves n will always be whole number i.e : 0 or greater.
+# Your bishop may only move using its predefined moment method (it may not act like a queen or knight).
+
+
+# def bishop(p1, p2, move):
+#     ChessRow = ["a", "b", "c", "d", "e", "f", "g", "h"]
+#     ChessCol = ['1', '2', '3', '4', '5', '6', '7', '8']
+#     x1 = 0
+#     y1 = 0
+#     result = []
+#     nummove = 0
+#     for pos in p1:
+#         if pos in ChessRow:
+#             x1 = ChessRow.index(pos) + 1
+#         else:
+#             y1 = ChessCol.index(pos) + 1
+#     for pos in p2:
+#         if pos in ChessRow:
+#             x2 = ChessRow.index(pos) + 1
+#         else:
+#             y2 = ChessCol.index(pos) + 1
+#     if move == 1:
+#         nummove += 1
+#         if x1 == y1 and x2 == y2:
+#             nummove -= 1
+#             if int(x1 + y1) % 2 == 0 and int(x2 + y2) % 2 == 0:
+#                 if x1 + y1 != x2 + y2:
+#                     if abs(x2 - x1) == 1:
+#                         nummove -= 1
+#                     else:
+#                         pass
+#                 else:
+#                     pass
+#         if int(x1 + y1) % 2 == 0 and int(x2 + y2) % 2 == 0:
+#             if x1 + y1 != x2 + y2:
+#                 nummove += 1
+#             else:
+#                 pass
+#
+#     if move > 0:
+#         for r in range(move):
+#             if x1 == y1 and x2 == y2:
+#                 nummove -= 1
+#             if x1 + y1 == x2 + y2:
+#                 pass
+#             if int(x1 + y1) % 2 == 0 and int(x2 + y2) % 2 == 0:
+#                 if x1 + y1 != x2 + y2:
+#                     nummove += 1
+#                 else:
+#                     pass
+#             if int(x1 + y1) % 2 == 1 and int(x2 + y2) % 2 == 1:
+#                 if x1 + y1 != x2 + y2:
+#                     nummove += 1
+#                 else:
+#                     pass
+#             if int((x1 + y1) - (x2 + y2)) % 2 != 0:
+#                 nummove = int(move) + 1
+#     elif move == 0:
+#         if x1 == x2 and y1 == y2:
+#             pass
+#         else:
+#             nummove = 100
+#     return bool(nummove <= move)
+
+
+# This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+#
+# seven(times(five())) # must return 35
+# four(plus(nine())) # must return 13
+# eight(minus(three())) # must return 5
+# six(divided_by(two())) # must return 3
+# Requirements:
+#
+# There must be a function for each number from 0 ("zero") to 9 ("nine")
+# There must be a function for each of the following mathematical operations: plus, minus, times, dividedBy (divided_by in Ruby and Python)
+# Each calculation consist of exactly one operation and two numbers
+# The most outer function represents the left operand, the most inner function represents the right operand
+# Division should be integer division. For example, this should return 2, not 2.666666...:
+# eight(divided_by(three()))
+
+
+
+def zero(f = None): return 0 if not f else f(0)
+def one(f = None): return 1 if not f else f(1)
+def two(f = None): return 2 if not f else f(2)
+def three(f = None): return 3 if not f else f(3)
+def four(f = None): return 4 if not f else f(4)
+def five(f = None): return 5 if not f else f(5)
+def six(f = None): return 6 if not f else f(6)
+def seven(f = None): return 7 if not f else f(7)
+def eight(f = None): return 8 if not f else f(8)
+def nine(f = None): return 9 if not f else f(9)
+
+def plus(y): return lambda x: x+y
+def minus(y): return lambda x: x-y
+def times(y): return lambda  x: x*y
+def divided_by(y): return lambda  x: x/y
