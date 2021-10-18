@@ -198,19 +198,67 @@
 # eight(divided_by(three()))
 
 
+# def zero(f = None): return 0 if not f else f(0)
+# def one(f = None): return 1 if not f else f(1)
+# def two(f = None): return 2 if not f else f(2)
+# def three(f = None): return 3 if not f else f(3)
+# def four(f = None): return 4 if not f else f(4)
+# def five(f = None): return 5 if not f else f(5)
+# def six(f = None): return 6 if not f else f(6)
+# def seven(f = None): return 7 if not f else f(7)
+# def eight(f = None): return 8 if not f else f(8)
+# def nine(f = None): return 9 if not f else f(9)
+#
+# def plus(y): return lambda x: x+y
+# def minus(y): return lambda x: x-y
+# def times(y): return lambda  x: x*y
+# def divided_by(y): return lambda  x: x/y
 
-def zero(f = None): return 0 if not f else f(0)
-def one(f = None): return 1 if not f else f(1)
-def two(f = None): return 2 if not f else f(2)
-def three(f = None): return 3 if not f else f(3)
-def four(f = None): return 4 if not f else f(4)
-def five(f = None): return 5 if not f else f(5)
-def six(f = None): return 6 if not f else f(6)
-def seven(f = None): return 7 if not f else f(7)
-def eight(f = None): return 8 if not f else f(8)
-def nine(f = None): return 9 if not f else f(9)
+#student name, age, grade
+#get_grade
+#Course name, max_students
+#add_student student
+# get_average_grade
 
-def plus(y): return lambda x: x+y
-def minus(y): return lambda x: x-y
-def times(y): return lambda  x: x*y
-def divided_by(y): return lambda  x: x/y
+class Student:
+    def __init__(self, name, age, grade):
+        self.name = name
+        self.age = age
+        self.grade = grade
+
+    def get_grade(self):
+        return self.grade
+
+class Course:
+    def __init__(self, name, max_students):
+        self.name = name
+        self.max_students = max_students
+        self.students = []
+
+    def add_student(self, student):
+        if len(self.students) < self.max_students:
+            self.students.append(student)
+            return True
+        return False
+
+    def get_average_grade(self):
+        value = 0
+        for student in self.students:
+            value += student.get_grade()
+        return value / len(self.students)
+
+s1 = Student('Tim', 18, 80)
+s2 = Student('Bob', 18, 190)
+s3 = Student('Tech', 20, 40)
+
+course = Course('Geography', 2)
+course.add_student(s1)
+course.add_student(s2)
+course.add_student(s3)
+print(course.get_average_grade())
+
+
+
+
+
+
