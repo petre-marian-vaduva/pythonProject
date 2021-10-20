@@ -276,7 +276,7 @@
 
 arr = [i for i in range(10) if i % 2 == 1]
 arr2 = [(i, y) for i in range(10) for y in range(20)]
-
+arr3 = [['a' for i in range(10)] for i in range(10)]
 
 
 
