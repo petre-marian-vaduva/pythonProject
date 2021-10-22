@@ -311,22 +311,43 @@
 # gap(6,100,110) --> nil or {0, 0} or ... : between 100 and 110 we have 101, 103, 107, 109 but 101-107is not a 6-gap because there is 103in between and 103-109is not a 6-gap because there is 107in between.
 
 
-def gap(g, m, n):
-    """Returns first prime gap of gap g between m, n, if it exits, None otherwise."""
-    last_prime = n + 1
-    for i in range(m, n + 1):
-        if is_prime(i):
-            if i - last_prime == g:
-                return [last_prime, i]
-            last_prime = i
-    return None
+# def gap(g, m, n):
+#     """Returns first prime gap of gap g between m, n, if it exits, None otherwise."""
+#     last_prime = n + 1
+#     for i in range(m, n + 1):
+#         if is_prime(i):
+#             if i - last_prime == g:
+#                 return [last_prime, i]
+#             last_prime = i
+#     return None
+#
+# def is_prime(n):
+#     if n < 2:
+#         return False
+#     for i in range(2, int(n**0.5) + 1):
+#         if n % i == 0 and i < n:
+#             return False
+#     return True
 
-def is_prime(n):
-    if n < 2:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0 and i < n:
-            return False
-    return True
+# Write a program that will calculate the number of trailing zeros in a factorial of a given number.
+#
+# N! = 1 * 2 * 3 * ... * N
+#
+# Be careful 1000! has 2568 digits...
+# zeros(6) = 1
+# # 6! = 1 * 2 * 3 * 4 * 5 * 6 = 720 --> 1 trailing zero
+#
+# zeros(12) = 2
+# # 12! = 479001600 --> 2 trailing zeros
 
-
+# def find_factor(p, n):
+#     """Find how many times the prime number p divides n!"""
+#     result, power = 0, p
+#     while power < n:
+#         result += n // power
+#         power *= p
+#     return result
+#
+# def zeros(n):
+#     """Find the number of trailing zeroes in n!."""
+#     return min(find_factor(p, n) for p in (2, 5))
