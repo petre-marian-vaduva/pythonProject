@@ -414,8 +414,213 @@
 #                 return "Not Balanced"
 
 
+# This
+# kata
+# concerns
+# stochastic
+# processes
+# which
+# often
+# have
+# to
+# be
+# repeated
+# many
+# times.We
+# want
+# to
+# be
+# able
+# to
+# randomly
+# sample
+# a
+# long
+# list
+# of
+# weighted
+# outcomes
+# quickly.
+#
+# For
+# instance,
+# with weights[
+#     3, 1, 0, 1, 5], it's expected that index 4 occur 50% of the time, on average, and that index 2, with no weight, never occur.
+#
+# The
+# issue is that
+# the
+# naive
+# method
+# for selecting an index randomly has time complexity on the order of O(n).If the number of weights is very large, this could be a bottleneck in simulation.
+#
+# The
+# fastest
+# method
+# for this process is contant time, on order O(1), assuming random values are O(1) too.It involves making at most one comparison and two random calls in the sampling routine, as demonstrated below:
+#
+#
+# class Distribution:  # preloaded
+#
+#     def __init__(self, weights):
+#         self.weights = list(weights)
+#         self.table = make_table(weights)
+#
+#     def sample(self):
+#         index = random.randrange(len(self.weights))
+#         probability, alias = self.table[index]
+#         numerator, denominator = probability
+#         chance = random.randrange(denominator)
+#         if chance < numerator:
+#             return index
+#         else:
+#             return alias
+#
+#
+# def make_table(weights):  # solution
+#     return [
+#         ((1, 1), None),
+#         ((1, 2), 4),
+#         ((0, 1), 4),
+#         ((1, 2), 0),
+#         ((1, 1), None)
+#     ]
+#
+#
+# example = Distribution([3, 1, 0, 1, 5])  # test
+# The
+# solution
+# above
+# for the make_table pre-processing step is incomplete since it's hard-coded and entirely ignores its argument weights. You can verify that the hard-coded solution works for this one example, though.
+#
+# Your
+# task is to
+# implement
+# this
+# function
+# make_table
+# so
+# that
+# its
+# return value
+# respects
+# the
+# input and can
+# be
+# used
+# by
+# the
+# Distribution
+#
+#
+# class as written.To be clear, only revisions to make_table are within the scope of the problem.
+#
+#
+# In
+# other
+# words, given
+# a
+# list
+# of
+# integer
+# weights, create
+# a
+# table
+# so
+# that
+# the
+# odds
+# of
+# the
+# sample
+# method
+# returning
+# each
+# index
+# will
+# correspond
+# with the index's weight.
+#
+# Note
+# how
+# the
+# sample
+# method
+# works
+# with the example solution.With probability 0 / 1, it never allows index 2 to be returned, substituting alias 4 instead.4 is also substituted 1 / 2 the time index 1 is selected, and 0 is substituted 1 / 2 the time index 3 is selected.The overall odds align perfectly.
+#
+# When
+# make_table is passed
+# an
+# arbitrary
+# list
+# of
+# weights, can
+# your
+# code
+# construct
+# a
+# similarly
+# clever
+# table? It
+# should, and then
+# the
+# sample
+# method is already
+# written
+# to
+# be
+# O(1) in randomly
+# sampling
+# it.
+#
+# To
+# pass
+# the
+# largest
+# tests
+# with over a thousand weights, your solution should run in O(n) time for this pre-processing step.The result should be exact and also minimal ideally, meaning that probabilites from 0 to 1 are reduced to lowest terms.You're welcome to substitute any integer value for None, whose only purpose above is as an unused placeholder.
 
-
+#
+# def make_table(weights):
+#     import math
+#     s = sum(weights)
+#     l = len(weights)
+#     w = [l * x for x in weights]  # Now weights sum up to s*l
+#     table = [None] * l
+#
+#     receivers = [x[0] for x in enumerate(w) if x[1] > s]
+#     givers = [x[0] for x in enumerate(w) if x[1] <= s]
+#     recweight = s
+#
+#     def receive(a):
+#         nonlocal recweight
+#         nonlocal receivers
+#         nonlocal table
+#         recweight += a
+#         excess = recweight - w[receivers[-1]]
+#
+#         if excess == 0:
+#             table[receivers[-1]] = ((1, 1), None)
+#             recweight = s
+#             _ = receivers.pop()
+#         elif excess > 0:
+#             gcd = math.gcd(s - excess, s)
+#             table[receivers[-1]] = (((s - excess) // gcd, s // gcd), receivers[-2])
+#             recweight = s
+#             _ = receivers.pop()
+#             receive(excess)
+#
+#     for giver in givers:
+#         excess = s - w[giver]
+#
+#         if excess == 0:
+#             table[giver] = ((1, 1), None)
+#         elif excess > 0:
+#             gcd = math.gcd(s - excess, s)
+#             table[giver] = (((s - excess) // gcd, s // gcd), receivers[-1])
+#             receive(excess)
+#     return table
 
 
 
