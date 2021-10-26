@@ -667,11 +667,57 @@
 #         else:
 #             return self.value == other
 
+# You must organize contest, that contains two part, knockout and round-robin.
+#
+# Part 1
+# Knockout part goes until we get an odd number of players. In each round players are paired up; each pair plays a game with the winning player advancing to the next round (no ties). This part continues as long as number of players is even. When we come to round with are an odd number of players we go to part 2.
+#
+# Part 1 will be skipped, if starting quantity of players is odd
+# If Part 1 ends with 1 player then contest is considered over, we have a winner
+# Part 2
+# Round-robin. Each participant plays every other participant once. The player with the most points is the winner.
+#
+# How many players you must invite to participate in the contest for got N games to be played?
+#
+# Input/Output
+# [input] integer n
+#
+# A positive number
+#
+# 1 ≤ n ≤ 10^9
+#
+# [output] array of Int
+#
+# Return array of all possible amounts of players. Array can be empty if requested number of games cannot be achieved by any one amount of players. Array must be sorted by ASC.
+#
+# If this kata is too easy, you can try much harder version.
+#
+# Examples
+# 3 games
+#
+# We can invite 3 players. In this case part 1 will be skipped and contest start with part 2, where 3 games will played.
+# Or we can invite 4 players, then part 1 will be made with 3 games. 2 semi-finals, final and we got a winner. Part 2 need no to be played, because we got 1 player only (winner of part 1).
+# 12 games
+#
+# We must invite 12 players. Contest start with Part 1, where will be played 6 + 3 games, than 3 more games will be played in Part 2. So the got 6 + 3 + 3 = 12 games.
 
 
 
-
-
+# import math
+#
+#
+# def find_player_counts(n):
+#     res = []
+#     u = 1
+#     while u * (u - 1) // 2 <= n:
+#         v = n - u * (u - 1) // 2  # = u * (2 * x - 1)
+#         if v % u == 0:
+#             p = v // u + 1
+#             x = math.log2(p)
+#             if x == int(x):
+#                 res.append(int(u * (2 ** x)))
+#         u += 2
+#     return sorted(res)
 
 
 
