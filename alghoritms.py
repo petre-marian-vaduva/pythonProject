@@ -747,4 +747,24 @@
 #     return ''.join(sorted(st.lower())) in ascii_lowercase
 
 
+# Move all exclamation marks to the end of the sentence
+#
+# Examples
+# remove("Hi!") === "Hi!"
+# remove("Hi! Hi!") === "Hi Hi!!"
+# remove("Hi! Hi! Hi!") === "Hi Hi Hi!!!"
+# remove("Hi! !Hi Hi!") === "Hi Hi Hi!!!"
+# remove("Hi! Hi!! Hi!") === "Hi Hi Hi!!!!"
 
+# def remove(s):
+#     new_s = ''
+#     count = 0
+#     for char in s:
+#         if char == '!':
+#             count += 1
+#             continue
+#         else:
+#             new_s += char
+#     for i in range(count):
+#         new_s += '!'
+#     return new_s
