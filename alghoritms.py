@@ -831,3 +831,17 @@
 #         if len(new_arr) == n:
 #             break
 #     return list(reversed(new_arr))
+
+# Simple, given a string of words, return the length of the shortest word(s).
+#
+# String will never be empty and you do not need to account for different data types.
+#
+# def find_short(s):
+#     l = 9999999
+#     for word in s.split():
+#         count = 0
+#         for letter in word:
+#             count += 1
+#         if l > count:
+#             l = count
+#     return l
