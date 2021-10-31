@@ -788,3 +788,28 @@
 #         lst.append(f'{i+1}: {lines[i]}')
 #     return lst
 
+# Remove all exclamation marks from sentence except at the end.
+#
+# Examples
+# remove("Hi!") == "Hi!"
+# remove("Hi!!!") == "Hi!!!"
+# remove("!Hi") == "Hi"
+# remove("!Hi!") == "Hi!"
+# remove("Hi! Hi!") == "Hi Hi!"
+# remove("Hi") == "Hi"
+#
+# def remove(s):
+#     new_s = ''
+#     for char in s:
+#         if char != '!':
+#             new_s += char
+#         else:
+#             continue
+#     for char in reversed(s):
+#         if char == '!':
+#             new_s += char
+#         else:
+#             break
+#     return new_s
+#
+# print(remove('!Hi'))
