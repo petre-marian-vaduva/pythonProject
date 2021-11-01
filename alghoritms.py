@@ -873,5 +873,18 @@
 #     elif count_upper > count_lower:
 #         return s.upper()
 
+# The vowel substrings in the word codewarriors are o,e,a,io. The longest of these has a length of 2. Given a lowercase string that has alphabetic characters only (both vowels and consonants) and no spaces, return the length of the longest vowel substring. Vowels are any of aeiou.
+
+# def solve(s):
+#     count = 0
+#     max_vowels = -1
+#     for char in s:
+#         if char in 'aeiou':
+#             count += 1
+#         else:
+#             count = 0
+#         if count > max_vowels:
+#             max_vowels = count
+#     return max_vowels
 
 
