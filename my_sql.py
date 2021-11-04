@@ -10,4 +10,8 @@ db = mysql.connector.connect(
 mycursor = db.cursor()
 
 # mycursor.execute('CREATE TABLE Person (name VARCHAR(50), age smallint UNSIGNED, personID int PRIMARY KEY AUTO_INCREMENT)')
-mycursor.execute('DESCRIBE Person')
+mycursor.execute('INSERT INTO Person (name, age) VALUES (%s,%s)', ('Tim', 19))
+db.commit()
+
+# mycursor.execute()
+
