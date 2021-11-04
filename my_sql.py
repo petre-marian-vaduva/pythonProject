@@ -13,7 +13,8 @@ mycursor = db.cursor()
 # mycursor.execute("CREATE TABLE Testing (name varchar(50) NOT NULL, created datetime NOT NULL, gender ENUM('M', 'F', 'O') NOT NULL, id int PRIMARY KEY NOT NULL AUTO_INCREMENT)")
 # mycursor.execute('INSERT INTO Testing (name, created, gender) VALUES (%s, %s, %s)', ('Mar', datetime.now(), 'F'))
 
+# mycursor.execute('ALTER TABLE Testing ADD COLUMN colours VARCHAR(50) NOT NULL')
 
-mycursor.execute('SELECT * FROM Testing WHERE gender = "M"')
+mycursor.execute('DESCRIBE Testing')
 for x in mycursor:
     print(x)
