@@ -893,9 +893,9 @@
 #
 # "riley" --> "Hello Riley!"
 # "JACK"  --> "Hello Jack!"
-#
-# def greet(name):
-#     return f'Hello {name.title()}!'
+
+def greet(name):
+    return f'Hello {name.title()}!'
 
 
 
