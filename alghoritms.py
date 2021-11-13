@@ -972,5 +972,20 @@
 #         total += passengers[0] - passengers[1]
 #     return total
 
-
+# Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+#
+# move_zeros([1, 0, 1, 2, 0, 1, 3]) # returns [1, 1, 2, 1, 3, 0, 0]
+#
+#
+# def move_zeros(array):
+#     newarr = []
+#     zeroarr = []
+#     for item in array:
+#         if item != 0 or type(item) == bool:
+#             newarr.append(item)
+#         else:
+#             zeroarr.append(item)
+#
+#     newarr.extend(zeroarr)
+#     return (newarr)
 
