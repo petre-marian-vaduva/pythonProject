@@ -8,13 +8,27 @@ db = mysql.connector.connect(
     database = 'testdatabase'
 )
 
+users = [('tim', 'tech', '1234', 'tim@gmail.com'),
+         ('joe', 'joe123', '2222', 'joe@gmail.com'),
+         ('sarah', 'sarah123', 'pass123', 'sarah@gmail.com')]
+
+users_scores = [(45,100),
+                (30,200),
+                (12,422)]
+
 mycursor = db.cursor()
 
-# mycursor.execute("CREATE TABLE Testing (name varchar(50) NOT NULL, created datetime NOT NULL, gender ENUM('M', 'F', 'O') NOT NULL, id int PRIMARY KEY NOT NULL AUTO_INCREMENT)")
-# mycursor.execute('INSERT INTO Testing (name, created, gender) VALUES (%s, %s, %s)', ('Mar', datetime.now(), 'F'))
 
-mycursor.execute('ALTER TABLE Testing CHANGE first_name first_name VARCHAR(50)')
+Q1 = 'CREATE TABLE Userss (id int PRIMARY KEY AUTO_INCREMENT, name VARCHAR(50), passwd VARCHAR(50))'
+Q2 = 'CREATE TABLE Scoress (userID int PRIMARY KEY, FOREIGN KEY(userId) REFERENCES Users(id), game1 int DEFAULT 0, game2 int DEFAULT 0)'
 
-mycursor.execute('DESCRIBE Testing')
+mycursor.execute('SHOW TABLES')
+
 for x in mycursor:
     print(x)
+
+
+
+
+
+
